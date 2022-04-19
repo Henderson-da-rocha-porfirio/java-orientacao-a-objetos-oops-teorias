@@ -1,2 +1,2 @@
-# Criando Classes e Objetos
+# Objetos
 ### Exemplo de troca de figurinhas.
