@@ -4,7 +4,7 @@ OOPS é uma abreviação para Object Oriented Programming
 System onde os programas são considerados uma coleção de
 objetos. Cada objeto é uma instancia de uma classe.
 ````
-## Principais Conceitos
+## * Principais Conceitos *
 ### 1. ABSTRAÇÃO ( ABSTRACTION )
 ````
 É o processo de representar somente os dados relevantes ou essenciais e esconder o desnecessário e detalhes de background
@@ -46,7 +46,7 @@ possível.
 Está ligado com o princípio de responsabilidade única, onde uma classe não deve assumir responsabilidades que não
 são suas.
 ````
-## Suas Relações
+## * Suas Relações *
 
 |  ABSTRAÇÃO ( ABSTRACTION )   |  ENCAPSULAMENTO ( ENCAPSULATION ) | HERANÇA ( INHERITANCE ) |
 |   :---     |   :---     |   :---     |
@@ -59,3 +59,13 @@ são suas.
 |  COMPOSIÇÃO ( COMPOSITION )   |  ACOPLAMENTO ( COUPLING ) | COESÃO ( COHESION ) |
 |   :---     |   :---     |   :---     |
 | Objetos | Classes | Classes |
+
+## * Classes Versus Objetos *
+#### Classes:
+````
+Uma classe serve para representar um objeto com todos os atributos relacionados à ele. Ex: Uma forma de bolo redonda.
+````
+#### Objetos:
+````
+É uma instância, ou seja uma representação da classe com sua identidade. Ex: O bolo redondo já pronto.
+````
