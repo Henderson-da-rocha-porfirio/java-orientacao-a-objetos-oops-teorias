@@ -46,3 +46,16 @@ possível.
 Está ligado com o princípio de responsabilidade única, onde uma classe não deve assumir responsabilidades que não
 são suas.
 ````
+## Suas Relações
+
+|  ABSTRAÇÃO ( ABSTRACTION )   |  ENCAPSULAMENTO ( ENCAPSULATION ) | HERANÇA ( INHERITANCE ) |
+|   :---     |   :---     |   :---     |
+| Dados e Funcoes | Dados | Classes |
+
+|  POLIMORFISMO ( POLYMORPHISM )   |  ASSOCIAÇÃO ( ASSOCIATION ) | AGREGAÇÃO ( AGREGATION ) |
+|   :---     |   :---     |   :---     |
+| Metodos | Objetos | Objetos |
+
+|  COMPOSIÇÃO ( COMPOSITION )   |  ACOPLAMENTO ( COUPLING ) | COESÃO ( COHESION ) |
+|   :---     |   :---     |   :---     |
+| Objetos | Classes | Classes |
