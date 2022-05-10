@@ -15,9 +15,11 @@ ou representar funções padrões que devem ser implementadas por classes que pr
 ````
 É uma maneira de proteger os dados para que somente as próprias classes possam manipulá-los.
 ````
-### 3. HERANÇA ( INHERITANCE )
+### 3. HERANÇA - Definida por 'extends' pela SubClasse ( INHERITANCE )
 ````
-É o conceito onde uma classe pode compartilhar sua estrutura e comportamentos com outras classes.
+É o conceito onde uma classe pode compartilhar sua estrutura e comportamentos com outras classes:
+1. SuperClasse: Classe mãe.
+2. SubClasse: Classe filha.
 ````
 ### 4. POLIMORFISMO ( POLYMORPHISM )
 ````
@@ -73,19 +75,19 @@ Uma classe serve para representar um objeto com todos os atributos relacionados 
 É uma instância, ou seja uma representação da classe com sua identidade. Ex: O bolo redondo já pronto.
 ````
 #### _______________________________________________
-## * Métodos *
+## * Métodos { }*
 ````
 a. Um método é equivalente a uma função, e sempre deve ser definidos dentro de uma classe.
 b. Em Java, um método é um bloco de código que é definido dentro de "{ }". Em sua assinatura é especificado
 o seu tipo de retorno ou sem retorno (tipo void), ele pode ou não receber parâmetros, que ficam dentro de "( )".
 ````
 #### _______________________________________________
-## * Funções *
+## * Funções { } *
 ````
 Uma Função é equivalente a um método, e sempre deve ser definidos dentro de uma classe.
 ````
 #### _______________________________________________
-## * Parâmetros *
+## * Parâmetros ( ) *
 ````
 São informações enviadas ao método e/ou função, para que ele realize seu objetivo.
 ````
@@ -107,10 +109,35 @@ São padrões de visibilidade de acessos às classes, atributos e métodos. É a
 acessado por outros, e o que será restrito à própria classe.
 ````
 #### _______________________________________________
+## * Overload Versus Override *
+#### Overload - não tem anotação ( Sobrecarga ):
+````
+A sobrecarga consiste em permitir, dentro da mesma classe, mais de um método com o mesmo nome. Entretanto,
+obrigatoriamente eles devem possuir parâmetros diferentes para funcionar.
+````
+#### Override - anotação: @Override ( Sobrescrita ):
+````
+A sobrescrita altera o comportamento de um método da classe mãe dentro da classe filha, eles possuem
+a mesma assinatura e tipo de retorno.
+````
+#### _______________________________________________
 ## * Pacotes *
 ````
 É o local em que as classes estão localizadas e organizadas dentro do repositório. Usualmente, são colocadas em um
 mesmo pacote de classes relacionadas, ou seja, construídas com um propósito comum para promover
 a reutilização de código.
 ````
-
+#### _______________________________________________
+## * Interfaces *
+````
+É um componente com o objetivo de especificar funções para padronização. As classes que estabelecem contrato, ou seja
+implementam a interface, devem, obrigatoriamente implementar os métodos contidos nela interface.
+````
+### - Na API do Java 8, foi adicionado um novo recurso que possibilita adicionar métodos em interfaces implementando-os ali mesmo, os DefaultMethods.
+### - Dessa forma não há obrigatoriedade de implementação na classe, apesar de possível, pois você já terá uma implementação default.
+#### _______________________________________________
+## * Enum *
+````
+É um tipo no qual declaramos um conjunto de valores constantes pré-definidos. Sua sintaxe é muito semelhante à declaração
+de uma classe, exceto pelo uso da palavra chave enum que antecede seu nome. Ex: ERROR_PRODUTO.
+````
