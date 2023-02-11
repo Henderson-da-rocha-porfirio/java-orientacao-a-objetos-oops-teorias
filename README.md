@@ -143,81 +143,89 @@ de uma classe, exceto pelo uso da palavra chave enum que antecede seu nome. Ex: 
 ````
 
 
-Resposta do tipo "Aprendendo por Exemplos".
 
-Modificadores de Visibilidade
+
+## Modificadores de Visibilidade
 A palavra-reservada private modifica a forma como as demais classes do seu programa conseguem ver uma classe ou um atributo de classe.
 
-Classes
+### Classes
 Para classes, podemos ter os modificadores:
 
-public
-Todas as demais enxergam.
+#### public
+> Todas as demais enxergam.
 
-public class MinhaClasse { ... }
-private
-Somente classes no mesmo arquivo fonte enxergam. Use isso quando a implementação serve para algum algoritmo interno da classe principal.
+#### public class MinhaClasse { ... }
 
+#### private
+> Somente classes no mesmo arquivo fonte enxergam. Use isso quando a implementação serve para algum algoritmo interno da classe principal.
+````
 public class MinhaClasse {
     private class MinhaClasseInternaPrivada { ... }
 }
+````
+````
 private class MinhaClassePrivada { ... }
-Nota: cada arquivo .java pode ter apenas uma classe pública.
 
 (default)
-Somente classes no mesmo arquivo fonte ou no mesmo pacote (package) enxergam. Use quando a implementação serve apenas para sua biblioteca ou para uma determinada parte do seu programa.
-
+#### Somente classes no mesmo arquivo fonte ou no mesmo pacote (package) enxergam. Use quando a implementação serve apenas para sua biblioteca ou para uma determinada parte do seu programa.
+````
 class MinhaClasse { ... }
-Métodos
+````
+## Métodos
 Métodos podem ter os seguintes modificadores de visibilidade:
 
-public
+### public
 Todas as classes o enxergam, desde que enxerguem a classe também.
-
+````
 public class MinhaClasse {
     public void meuMetodo() { }
 }
-private
+````
+### private
 Somente classes no mesmo arquivo fonte enxergam. Use isso quando o método é feito apenas para uso dos outros métodos públicos da classe.
-
+````
 public class MinhaClasse {
     private void meuMetodoSecreto() { }
     public void meuMetodoPublico() {
         meuMetodoSecreto();
     }
 }
-Métodos privados não podem ser sobrescritos.
+````
+#### Métodos privados não podem ser sobrescritos.
 
-protected
+### protected
 Métodos protegidos podem ser vistos pelas classes do mesmo pacote ou por subclasses.
-
+````
 public class MinhaClasse {
     protected void meuMetodo() { }
 }
-Use isso se for fazer algum tipo de biblioteca que permita a outro desenvolvedor estender suas classes e então usar esses métodos especiais, os quais não devem ser chamados por outras classes que usam a sua biblioteca.
+````
+> Use isso se for fazer algum tipo de biblioteca que permita a outro desenvolvedor estender suas classes e então usar esses métodos especiais, os quais não devem ser chamados por outras classes que usam a sua biblioteca.
 
-(default)
+### (default)
 Métodos sem modificador podem ser vistos apenas pelas classes do mesmo pacote.
-
+````
 public class MinhaClasse {
     void meuMetodo() { }
 }
-Use isso quando um método é usado apenas pelas classes que compõe uma parte do seu programa.
+````
+> Use isso quando um método é usado apenas pelas classes que compõe uma parte do seu programa.
 
-Atributos
+## Atributos
 Atributos funcionam praticamente como os métodos.
 
-public
-Todas as classes o enxergam, desde que enxerguem a classe também.
-
+### public
+> Todas as classes o enxergam, desde que enxerguem a classe também.
+````
 public class MinhaClasse {
     public int atributo = 1;
 }
-É uma má prática ter atributos int, a menos que sejam "constantes" ou você queira simular estruturas como da linguagem C.
+````
+> É uma má prática ter atributos int, a menos que sejam "constantes" ou você queira simular estruturas como da linguagem C.
 
-private
-Somente classes no mesmo arquivo fonte enxergam. Procure deixar todos os seus atributos privados e dar o acesso encasulado a eles através de getters e setters.
-
+### private
+> Somente classes no mesmo arquivo fonte enxergam. Procure deixar todos os seus atributos privados e dar o acesso encasulado a eles através de getters e setters.
+````
 public class MinhaClasse {
     private int atributo = 1;
     public int getAtributo() {
@@ -227,36 +235,41 @@ public class MinhaClasse {
         this.atributo = atributo;
     }
 }
-protected
+````
+### protected
 Atributos protegidos podem ser vistos pelas classes do mesmo pacote ou por subclasses.
-
+````
 public class MinhaClasse {
     protected int atributo = 1;
 }
+````
+````
 (default)
 Atributos sem modificador podem ser vistos apenas pelas classes do mesmo pacote.
 
 public class MinhaClasse {
     int atributo = 1;
 }
-Modificador final
-É usado em vários contextos: classes, métodos, atributos e variáveis.
+````
+## Modificador final
+> É usado em vários contextos: classes, métodos, atributos e variáveis.
 
-Classes final
-Uma classe com este modificador não pode ser estendida, isto é, não pode ter classes que herdam dela.
+### Classes final
+> Uma classe com este modificador não pode ser estendida, isto é, não pode ter classes que herdam dela.
 
-Isso é importante para garantir que uma determinada implementação não tenha seu comportamento modificado. Isso tem muito a ver com a imutabilidade.
+> Isso é importante para garantir que uma determinada implementação não tenha seu comportamento modificado. Isso tem muito a ver com a imutabilidade.
 
-Tipos básicos do Java como String e Integer são final porque se espera que o conteúdo não possa ser modificado. O problema é que seu alguém pudesse criar uma subclasses de String, esta implementação poderia passar a ser mutável. Uma String mutável seria o caos na terra para implementações, pois vários pressupostos que os desenvolvedores usam no dia-a-dia seriam simplesmente desfeitos.
-
+> Tipos básicos do Java como String e Integer são final porque se espera que o conteúdo não possa ser modificado. O problema é que seu alguém pudesse criar uma subclasses de String, esta implementação poderia passar a ser mutável. Uma String mutável seria o caos na terra para implementações, pois vários pressupostos que os desenvolvedores usam no dia-a-dia seriam simplesmente desfeitos.
+````
 public final class String
      implements java.io.Serializable, Comparable<String>, CharSequence
 { ... }
-Método final
-É um método que não pode ser sobrescrito nas subclasses.
+````
+### Método final
+> É um método que não pode ser sobrescrito nas subclasses.
 
-Use para garantir que um determinado algoritmo não possa ser modificado pelas subclasses.
-
+> Use para garantir que um determinado algoritmo não possa ser modificado pelas subclasses.
+````
 Exemplo:
 
 class ChessAlgorithm {
@@ -267,9 +280,10 @@ class ChessAlgorithm {
     }
     ...
 }
-Atributo final
-Um atributo final de uma classe pode ter seu valor atribuído uma única vez, seja na própria declaração ou no construtor.
-
+````
+## Atributo final
+> Um atributo final de uma classe pode ter seu valor atribuído uma única vez, seja na própria declaração ou no construtor.
+````
 public class MinhaClasse {
     final int x = 1;
     final int y;
@@ -278,6 +292,8 @@ public class MinhaClasse {
         this.y = y;
     }
 }
+````
+
 Use isso para garantir que um valor ou referência de objeto não vai mudar. Voltamos à imutabilidade.
 
 Se você tem um algoritmo que usa esse variável, você pode armazenar valores calculados sem a preocupação do valor mudar.
@@ -313,7 +329,7 @@ No código acima, suponha que o desenvolvedor queria comparar os valores de a e 
 
 Threads e Classes Internas
 Outra vantagem de variáveis e atributos final é poder usá-los em classes internas, técnica muito usada em Threads.
-
+````
 public class MinhaClasse {
 
     public void executarEmParalelo(final int limite, final Processamento proc) {
@@ -327,6 +343,7 @@ public class MinhaClasse {
         t.start();
     }
 }
+````
 Modificador static
 Ele muda o escopo de um método ou atributo. Com o static, ao invés deles pertencerem à instância do objeto, eles pertencem à classe.
 
@@ -334,54 +351,61 @@ O modificador também pode ser aplicado para classes, como veremos a seguir.
 
 Métodos static
 Os métodos static podem ser chamados sem uma instância. São ótimos como utilitários.
-
+````
 public final class Integer extends Number implements Comparable<Integer> {
     public static Integer valueOf(String s, int radix) throws NumberFormatException {
         return new Integer(parseInt(s,radix));
     }
 }
+
+````
 Você pode chamar assim:
 
 Integer valor = Integer.valueOf("FF", 16);
 Métodos estáticos não podem acessar variáveis de instância.
-
+````
 public class MinhaClasse {
     int valor = 1;
     public static int estatico() {
         return valor; //erro de compilação aqui!!!
     }
 }
+````
 Atributos static
 Os atributos static possuem o mesmo valor para todas as instâncias de um objeto (dentro de uma mesma JVM, dentro de um mesmo ClassLoader).
-
+````
 public class MinhaClasse {
     static int valorGlobal = 1;
     public static int getValorGlobal() {
         return valorGlobal;
     }
 }
+````
 Então, podemos fazer o seguinte:
-
+````
 MinhaClasse c1 = new MinhaClasse();
 MinhaClasse c2 = new MinhaClasse();
 MinhaClasse.valorGlobal = 2;
 System.out.println(c1); //imprime 2
 System.out.println(c2); //imprime 2
+````
 Classes static
 Classes static são classes declaradas dentro de outra classe que podem ser usadas sem a necessidade de uma instância.
-
+````
 public class MinhaClasse {
     public static classe ClasseInterna { }
 }
+````
 Então podemos acessar isso assim:
-
+````
 MinhaClasse.ClasseInterna instancia = new MinhaClasse.ClasseInterna();
+````
 Juntando tudo
 Agora que entendemos o que cada coisa faz individualmente, vamos a uma aplicação prática.
 
 Padrão de Projeto Singleton
 Problema: quero garantir uma instância única de um objeto no meu programa.
-
+````
 Solução:
 
 public class MinhaClasse {
@@ -393,14 +417,16 @@ public class MinhaClasse {
         return instancia;
     }
 }
+````
 Uso:
-
+````
 MinhaClasse instancia = MinhaClasse.getInstancia();
+````
 Isso vai retornar o mesmo valor em todas as chamadas.
 
 Basicamente, o que fizemos foi isso:
 
-Criar um atributo chamado instancia que só a MinhaClasse pode ver (private) e contém sempre o mesmo valor (static).
+> Criar um atributo chamado instancia que só a MinhaClasse pode ver (private) e contém sempre o mesmo valor (static).
 Criar um método que pode ser chamado diretamente pela classe, sem precisar da instância (static).
 Então, o método estático retorna o valor estático, que será sempre o mesmo.
 
