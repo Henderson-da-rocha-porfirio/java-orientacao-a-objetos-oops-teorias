@@ -403,3 +403,11 @@ Basicamente, o que fizemos foi isso:
 Criar um atributo chamado instancia que só a MinhaClasse pode ver (private) e contém sempre o mesmo valor (static).
 Criar um método que pode ser chamado diretamente pela classe, sem precisar da instância (static).
 Então, o método estático retorna o valor estático, que será sempre o mesmo.
+
+## ERROS DE JAVAX:
+
+### QUANDO DER ESTE ERRO boot layer module javax.xml.bind
+
+#### 1 - IR EM VARIAVEIS DE AMBIENTE E REMOVER MAVEN_OPTS:
+
+#### terá dentro dele --add-modules java.xml.bind
